@@ -1,0 +1,13 @@
+apiVersion: nve.netapp.io/v1
+kind: NVEPhysicalCluster
+metadata:
+  labels:
+    label.nve.netapp.io/location: factory-floor
+    label.nve.netapp.io/purpose: weld-inspection
+    label.nve.netapp.io/region: canada
+    label.nve.netapp.io/size: small
+    label.nve.netapp.io/type: parametric
+  name: cluster-123456
+spec:
+  cluster:
+    id: "123456"
