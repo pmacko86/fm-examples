@@ -1,0 +1,6 @@
+apiVersion: nve.netapp.io/v1
+kind: NVEClusterConfig
+metadata:
+  annotations:
+    annotation.nve.netapp.io/description: Clusters intended for parametric inference.
+  name: parametric

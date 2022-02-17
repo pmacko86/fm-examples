@@ -1,0 +1,39 @@
+apiVersion: nve.netapp.io/v1
+kind: NVENetworkSecurityGroup
+metadata:
+  name: secgroup-allow-all
+spec:
+  rules:
+    - direction: inbound
+      ports: "*"
+      protocol: tcp
+    - direction: outbound
+      ports: "*"
+      protocol: tcp
+
+---
+apiVersion: nve.netapp.io/v1
+kind: NVEVirtualNetwork
+metadata:
+  name: vnet-main
+spec:
+  mode: bridge
+  securityGroups:
+    - name: secgroup-allow-all
+  size: 8
+  type: public
+
+---
+apiVersion: nve.netapp.io/v1
+kind: NVEVirtualNetwork
+metadata:
+  name: vnet-private
+spec:
+  cidr: 192.168.0.0/16
+  mode: vswitch
+  securityGroups:
+    - name: secgroup-allow-all
+  size: 128
+  type: private
+  vswitch:
+    vlanId: 23

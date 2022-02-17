@@ -1,0 +1,23 @@
+apiVersion: fleet.cattle.io/v1alpha1
+kind: ClusterGroup
+metadata:
+  name: parametric
+  namespace: clusters
+spec:
+  selector:
+    matchLabels:
+      label.nve.netapp.io/type: parametric
+
+---
+apiVersion: fleet.nve.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: parametric
+  namespace: nve-fleet
+spec:
+  paths:
+    - deployed/configs/parametric
+  repo: https://github.com/pmacko86/fm-examples
+  targets:
+    - clusterGroup: parametric
+      name: parametric
