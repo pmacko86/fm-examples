@@ -1,0 +1,12 @@
+apiVersion: fleet.nve.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: inference-vm
+  namespace: nve-fleet
+spec:
+  paths:
+    - deployed/applications/inference-vm
+  repo: https://github.com/pmacko86/fm-examples
+  targets:
+    - clusterGroup: parametric
+      name: parametric

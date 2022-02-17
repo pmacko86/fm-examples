@@ -1,0 +1,71 @@
+apiVersion: nve.netapp.io/v1
+kind: NVEVirtualMachine
+metadata:
+  annotations:
+    annotation.nve.netapp.io/description: A sample inference VM
+  name: inference-vm
+spec:
+  template:
+    spec:
+      cpu: 4
+      customization:
+        sshKey: ssh-key ABCDEFGH...
+        startScript: echo 'Hello world!'
+        userInput:
+          - key: key1
+            value: value1
+      gpu:
+        count: 2
+        minModel: Tesla T4
+      image:
+        marketplace: nve-marketplace
+        name: inference-centos8
+        version: 1
+      incomingData:
+        - operation: copy
+          schedule:
+            frequency: 1 hr
+          source:
+            path: /redis/golden-config
+            storage:
+              kind: NVEExternalStorage
+              name: model-storage-s3
+          target:
+            path: /data/config
+            type: nfs
+      memory: 16GB
+      network:
+        - name: vnet01
+          qos:
+            inbound:
+              average: 100KB/s
+              burst: 150KB/s
+              peak: 150KB/s
+            outbound:
+              average: 100KB/s
+              burst: 150KB/s
+              peak: 150KB/s
+      outgoingData:
+        - operation: copy
+          schedule:
+            frequency: 15 min
+          source:
+            path: /data/storage
+            type: nfs
+          target:
+            path: /{{ clusterId }}
+            storage:
+              kind: NVEExternalStorage
+              name: backup-target-1
+      storage:
+        - cacheMode: writethrough
+          capacity: 100GB
+          mountPath: /data
+          replicationGoal: 2
+          throttle:
+            readIops: 2K
+            readThroughput: 150MB/s
+            totalIops: 2K
+            totalThroughput: 200MB/s
+            writeIops: 2K
+            writeThroughput: 150MB/s
