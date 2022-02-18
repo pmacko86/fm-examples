@@ -1,4 +1,4 @@
-apiVersion: fleet.nve.io/v1alpha1
+apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
 metadata:
   name: inference-vm
