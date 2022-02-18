@@ -1,0 +1,29 @@
+apiVersion: nve.netapp.io/v1
+kind: NVEKubernetesCluster
+metadata:
+  name: kubernetes
+spec:
+  controlPlaneTemplate:
+    spec:
+      storage:
+        - mountPath: /data
+          capacity: 16GB
+          cacheMode: writethrough
+      cpu: 4
+      memory: 8GB
+  workerTemplate:
+    spec:
+      storage:
+        - mountPath: /data
+          capacity: 128GB
+          cacheMode: writethrough
+      cpu: 4
+      gpu:
+        count: 2
+        minModel: Tesla T4
+      memory: 16GB
+  replicas:
+    onEvery: 1
+  kubernetes:
+    type: default
+    version: 1.22.4
