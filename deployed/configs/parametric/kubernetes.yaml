@@ -5,25 +5,25 @@ metadata:
 spec:
   controlPlaneTemplate:
     spec:
-      storage:
-        - mountPath: /data
-          capacity: 16GB
-          cacheMode: writethrough
       cpu: 4
-      memory: 8GB
+      memory: 16GB
+      storage:
+        - cacheMode: writethrough
+          capacity: 16GB
+          mountPath: /data
+  kubernetes:
+    type: default
+    version: 1.22.4
+  replicas:
+    onEvery: 1
   workerTemplate:
     spec:
-      storage:
-        - mountPath: /data
-          capacity: 128GB
-          cacheMode: writethrough
       cpu: 4
       gpu:
         count: 2
         minModel: Tesla T4
       memory: 16GB
-  replicas:
-    onEvery: 1
-  kubernetes:
-    type: default
-    version: 1.22.4
+      storage:
+        - cacheMode: writethrough
+          capacity: 128GB
+          mountPath: /data
