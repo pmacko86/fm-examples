@@ -1,0 +1,24 @@
+apiVersion: nve.netapp.io/v1
+kind: NVEVirtualMachine
+metadata:
+  name: inference-vm2
+  annotations:
+    annotation.nve.netapp.io/description: An example of another VM-based application.
+spec:
+  template:
+    spec:
+      image:
+        marketplace: nve-marketplace
+        name: inference2
+        version: "2.3"
+      cpu: 4
+      memory: 16GB
+      gpu:
+        count: 2
+        minModel: Tesla T4
+      network:
+        - name: vnet-private
+      storage:
+        - mountPath: /data
+          capacity: 100GB
+          cacheMode: writethrough
