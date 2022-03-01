@@ -14,7 +14,7 @@ spec:
       image:
         marketplace: nve-marketplace
         name: inference2
-        version: "2.4"
+        version: "2.5"
       memory: 16GB
       network:
         - name: vnet-private
