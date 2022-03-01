@@ -4,9 +4,9 @@ metadata:
   name: inference-vm2
   namespace: nve-fleet
 spec:
+  paths:
+    - deployed/applications/inference-vm2
+  repo: https://github.com/pmacko86/fm-examples
   targets:
     - clusterGroup: parametric
       name: parametric
-  repo: https://github.com/pmacko86/fm-examples
-  paths:
-    - deployed/applications/inference-vm2
