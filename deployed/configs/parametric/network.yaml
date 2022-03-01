@@ -20,7 +20,7 @@ spec:
   mode: bridge
   securityGroups:
     - name: secgroup-allow-all
-  size: 8
+  size: 16
   type: public
 
 ---
