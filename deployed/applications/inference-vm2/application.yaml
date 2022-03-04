@@ -2,7 +2,8 @@ apiVersion: nve.netapp.io/v1
 kind: NVEVirtualMachine
 metadata:
   annotations:
-    annotation.nve.netapp.io/description: An example of another VM-based application.
+    annotation.nve.netapp.io/description: An example of another VM-based
+      application. Updating just to see whether it works.
   name: inference-vm2
 spec:
   template:
