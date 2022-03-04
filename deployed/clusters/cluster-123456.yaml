@@ -2,12 +2,12 @@ apiVersion: nve.netapp.io/v1
 kind: NVEPhysicalCluster
 metadata:
   labels:
+    label.nve.netapp.io/hardware_vendor: lenovo
     label.nve.netapp.io/location: factory-floor
     label.nve.netapp.io/purpose: weld-inspection
-    label.nve.netapp.io/region: canada
+    label.nve.netapp.io/region: amer
     label.nve.netapp.io/size: small
     label.nve.netapp.io/type: parametric
-    label.nve.netapp.io/hardware_vendor: lenovo
   name: cluster-123456
 spec:
   cluster:
