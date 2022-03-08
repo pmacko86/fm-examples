@@ -1,0 +1,31 @@
+apiVersion: nve.netapp.io/v1
+kind: NVEVirtualMachine
+metadata:
+  name: appvm1
+spec:
+  template:
+    spec:
+      image:
+        marketplace: nve-marketplace
+        name: Golden-CentOS-Stream8
+      customization:
+        startScript: echo $MYTEST > /root/test.yaml
+        sshKey: ssh-rsa
+          AAAAB3NzaC1yc2EAAAADAQABAAABgQC6+PCf6tp3vtfqKOOVWMRikn3IiFWQPGeBtc4jVom43QtwDwYwxD15BjE0PMDWR63B7ynYTJM2xeW/rV+HZvgfw8UPbRVNfObY8UdQvG0BAvEr+ZFcR6zJm9xpX8QxMPkrJtWcylXYCQa6q+dkyq5AeoTbyYUIuT9F6jBtqwKGNAqfZ2EZp7udFAfyXwMihhvtJvrhQy7HdL81V2qcxDv02QQYDXovCAfX+Nd7unbwUAkcNYRXZWViPGhCxCvmgVXCZxOAmw7SD6v+OfkrauevCwlnz1hlXWDtG30im/Y1H4QNmnNoG9HY27fYEDofLWwvhLkKdrjHg3yPZcz47bJ/v+LwwhGJaE1C7nQPB9ja3eA47/k5hw84c9JGv1FxhUuX+qwGAJYousphTqlJBHX6+ZdCAUp6MPE0/EIrBsSTxpTCiLhLqhJFeLKTOXDFZHqiMPN6jdkyXCSYEvJoqoODPpB5/oVSUHqyJqYAEURFFBMaNQRl9Ge2djAWbNaPP5k=
+          root@ubuntu
+      cpu: 4
+      memory: 16GB
+      network:
+        - name: vnet1
+          qos:
+            inbound:
+              average: 100KB/s
+              peak: 100KB/s
+              burst: 100KB/s
+            outbound:
+              burst: 100KB/s
+              average: 100KB/s
+              peak: 100KB/s
+      storage:
+        - mountPath: /userData
+          capacity: 10GB
