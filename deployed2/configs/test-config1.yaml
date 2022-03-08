@@ -1,0 +1,23 @@
+apiVersion: fleet.cattle.io/v1alpha1
+kind: ClusterGroup
+metadata:
+  name: test-config1
+  namespace: clusters
+spec:
+  selector:
+    matchLabels:
+      label.nve.netapp.io/location: rtp
+
+---
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: test-config1
+  namespace: nve-fleet
+spec:
+  targets:
+    - clusterGroup: test-config1
+      name: test-config1
+  repo: https://github.com/pmacko86/fm-examples
+  paths:
+    - deployed2/configs/test-config1

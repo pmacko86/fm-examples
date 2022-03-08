@@ -1,0 +1,25 @@
+apiVersion: nve.netapp.io/v1
+kind: NVENetworkSecurityGroup
+metadata:
+  name: allow-all
+spec:
+  rules:
+    - direction: inbound
+      protocol: "*"
+      ports: "*"
+    - direction: outbound
+      protocol: "*"
+      ports: "*"
+
+---
+apiVersion: nve.netapp.io/v1
+kind: NVEVirtualNetwork
+metadata:
+  name: vnet1
+spec:
+  securityGroups:
+    - name: allow-all
+  type: private
+  cidr: 192.168.0.0/16
+  size: 5
+  mode: bridge
