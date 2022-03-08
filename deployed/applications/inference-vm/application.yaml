@@ -15,7 +15,7 @@ spec:
           - key: key1
             value: value1
       gpu:
-        count: 2
+        count: 0
         minModel: Tesla T4
       image:
         marketplace: nve-marketplace
@@ -33,7 +33,7 @@ spec:
           target:
             path: /data/config
             type: nfs
-      memory: 16GB
+      memory: 4GB
       network:
         - name: vnet01
           qos:
@@ -59,9 +59,9 @@ spec:
               name: backup-target-1
       storage:
         - cacheMode: writethrough
-          capacity: 100GB
+          capacity: 10GB
           mountPath: /data
-          replicationGoal: 2
+          replicationGoal: "1"
           throttle:
             readIops: 2K
             readThroughput: 150MB/s
