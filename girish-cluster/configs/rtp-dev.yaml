@@ -1,0 +1,24 @@
+apiVersion: fleet.cattle.io/v1alpha1
+kind: ClusterGroup
+metadata:
+  name: rtp-dev
+  namespace: clusters
+spec:
+  selector:
+    matchLabels:
+      label.nve.netapp.io/env: dev
+      label.nve.netapp.io/location: rtp
+
+---
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: rtp-dev
+  namespace: nve-fleet
+spec:
+  targets:
+    - clusterGroup: rtp-dev
+      name: rtp-dev
+  repo: https://github.com/pmacko86/fm-examples
+  paths:
+    - girish-cluster/configs/rtp-dev

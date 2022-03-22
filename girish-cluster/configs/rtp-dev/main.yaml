@@ -1,0 +1,5 @@
+apiVersion: nve.netapp.io/v1
+kind: NVEClusterConfig
+metadata:
+  name: rtp-dev
+spec: {}
