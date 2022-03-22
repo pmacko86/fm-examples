@@ -2,7 +2,7 @@ apiVersion: fleet.cattle.io/v1alpha1
 kind: ClusterGroup
 metadata:
   name: rtp-dev
-  namespace: clusters
+  namespace: allclusters
 spec:
   selector:
     matchLabels:
@@ -14,7 +14,7 @@ apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
 metadata:
   name: rtp-dev
-  namespace: nve-fleet
+  namespace: allclusters
 spec:
   targets:
     - clusterGroup: rtp-dev
