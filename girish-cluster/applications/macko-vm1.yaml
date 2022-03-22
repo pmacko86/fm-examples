@@ -2,7 +2,7 @@ apiVersion: fleet.cattle.io/v1alpha1
 kind: GitRepo
 metadata:
   name: macko-vm1
-  namespace: nve-fleet
+  namespace: allclusters
 spec:
   targets:
     - clusterGroup: rtp-dev
