@@ -4,10 +4,10 @@ metadata:
   name: macko-vm1
   namespace: allclusters
 spec:
+  branch: main
   paths:
     - girish-cluster/applications/macko-vm1
   repo: https://github.com/pmacko86/fm-examples
   targets:
     - clusterGroup: rtp-dev
       name: rtp-dev
-  branch: main
