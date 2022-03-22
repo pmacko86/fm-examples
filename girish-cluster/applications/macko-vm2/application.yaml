@@ -1,0 +1,28 @@
+apiVersion: nve.netapp.io/v1
+kind: NVEVirtualMachine
+metadata:
+  name: macko-vm2
+spec:
+  template:
+    spec:
+      image:
+        marketplace: nve-marketplace
+        name: Golden-CentOS-Stream8
+      customization:
+        startScript: echo Hello
+        sshKey: ssh-rsa
+          AAAAB3NzaC1yc2EAAAADAQABAAABAQDiBTvm5avMikPjMyVM9rjwg3yeNrMHc32MNtZ1rP6Y9Yc/QbZIqcGHUq/kX84Bt8wn0DGxtWgU+zEi83dYNirYehAak5tzN/dudSpwInFO886wTYiRUBnbT7rTCr2+/8yZbOnYQNZ/+U4ewmRRB086vOMue2VJVa1EHwELZ5Hs0cQ269l/HGWcMuIXlzBzDBvaXQoYto7xur4h+o/FuFd7Lphrv29mw6LJehYva7SEOm/v3TqNU7+4rPp5z5kQzVnqtn+HOvYRT/MWxdG+wIzFU8B+4aTVwRTwK0Oe7/AEO7+TSJMtkoQTHMMZnTWTqWxdu+WWMB5azL6tY5hohDkl
+          peter.macko@netapp.com
+      cpu: 1
+      memory: 2GB
+      network:
+        - name: vnet-01
+          qos:
+            inbound:
+              average: 100KB/s
+              peak: 150KB/s
+              burst: 150KB/s
+            outbound:
+              average: 100KB/s
+              peak: 150KB/s
+              burst: 150KB/s
