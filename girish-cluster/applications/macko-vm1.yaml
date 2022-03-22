@@ -1,0 +1,10 @@
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: macko-vm1
+  namespace: nve-fleet
+spec:
+  targets: []
+  repo: https://github.com/pmacko86/fm-examples
+  paths:
+    - girish-cluster/applications/macko-vm1
