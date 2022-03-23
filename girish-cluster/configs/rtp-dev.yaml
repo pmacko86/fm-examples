@@ -6,8 +6,8 @@ metadata:
 spec:
   selector:
     matchLabels:
-      label.nve.netapp.io/env: dev
-      label.nve.netapp.io/location: rtp
+      env: dev
+      location: rtp
 
 ---
 apiVersion: fleet.cattle.io/v1alpha1
@@ -16,9 +16,10 @@ metadata:
   name: rtp-dev
   namespace: allclusters
 spec:
+  paths:
+    - girish-cluster/configs/rtp-dev
+  repo: https://github.com/pmacko86/fm-examples
   targets:
     - clusterGroup: rtp-dev
       name: rtp-dev
-  repo: https://github.com/pmacko86/fm-examples
-  paths:
-    - girish-cluster/configs/rtp-dev
+  branch: main
