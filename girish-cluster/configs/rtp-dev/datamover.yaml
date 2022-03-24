@@ -1,5 +1,0 @@
-apiVersion: nve.netapp.io/v1
-kind: NVEDataMoverVirtualMachine
-metadata:
-  name: data-mover
-spec: {}
