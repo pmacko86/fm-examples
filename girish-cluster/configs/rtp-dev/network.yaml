@@ -1,0 +1,25 @@
+apiVersion: nve.netapp.io/v1
+kind: NVENetworkSecurityGroup
+metadata:
+  name: macko-sg1
+spec:
+  rules:
+    - direction: inbound
+      protocol: "*"
+      ports: "*"
+    - direction: outbound
+      protocol: "*"
+      ports: "*"
+
+---
+apiVersion: nve.netapp.io/v1
+kind: NVEVirtualNetwork
+metadata:
+  name: macko-vnet1
+spec:
+  securityGroups:
+    - name: macko-sg1
+  type: private
+  cidr: 172.16.1.0/24
+  size: 32
+  mode: bridge
