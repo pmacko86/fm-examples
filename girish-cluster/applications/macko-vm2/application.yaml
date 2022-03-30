@@ -14,7 +14,7 @@ spec:
       image:
         marketplace: nve-marketplace
         name: Golden-CentOS-Stream8
-      memory: 2GB
+      memory: 4GB
       network:
         - name: vnet-01
           qos:
