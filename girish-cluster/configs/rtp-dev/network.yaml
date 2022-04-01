@@ -5,11 +5,11 @@ metadata:
 spec:
   rules:
     - direction: inbound
-      protocol: "*"
       ports: "*"
+      protocol: tcp
     - direction: outbound
-      protocol: "*"
       ports: "*"
+      protocol: tcp
 
 ---
 apiVersion: nve.netapp.io/v1
@@ -17,9 +17,9 @@ kind: NVEVirtualNetwork
 metadata:
   name: macko-vnet1
 spec:
+  cidr: 172.16.1.0/24
+  mode: bridge
   securityGroups:
     - name: macko-sg1
-  type: private
-  cidr: 172.16.1.0/24
   size: 32
-  mode: bridge
+  type: private
