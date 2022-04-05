@@ -8,6 +8,7 @@ spec:
     matchLabels:
       env: dev
       location: rtp
+      owner: macko
 
 ---
 apiVersion: fleet.cattle.io/v1alpha1
