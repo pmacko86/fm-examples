@@ -5,7 +5,7 @@ metadata:
 spec:
   template:
     spec:
-      cpu: 1
+      cpu: "1"
       customization:
         sshKey: ssh-rsa
           AAAAB3NzaC1yc2EAAAADAQABAAABAQDiBTvm5avMikPjMyVM9rjwg3yeNrMHc32MNtZ1rP6Y9Yc/QbZIqcGHUq/kX84Bt8wn0DGxtWgU+zEi83dYNirYehAak5tzN/dudSpwInFO886wTYiRUBnbT7rTCr2+/8yZbOnYQNZ/+U4ewmRRB086vOMue2VJVa1EHwELZ5Hs0cQ269l/HGWcMuIXlzBzDBvaXQoYto7xur4h+o/FuFd7Lphrv29mw6LJehYva7SEOm/v3TqNU7+4rPp5z5kQzVnqtn+HOvYRT/MWxdG+wIzFU8B+4aTVwRTwK0Oe7/AEO7+TSJMtkoQTHMMZnTWTqWxdu+WWMB5azL6tY5hohDkl
