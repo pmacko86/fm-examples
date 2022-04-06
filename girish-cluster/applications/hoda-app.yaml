@@ -1,0 +1,13 @@
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: hoda-app
+  namespace: allclusters
+spec:
+  targets:
+    - clusterGroup: rtp-dev
+      name: rtp-dev
+  branch: main
+  repo: https://github.com/pmacko86/fm-examples
+  paths:
+    - girish-cluster/applications/hoda-app
