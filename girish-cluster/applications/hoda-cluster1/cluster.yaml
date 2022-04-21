@@ -1,0 +1,37 @@
+---
+apiVersion: nve.netapp.io/v1
+kind: NVEKubernetesCluster
+metadata:
+  name: "k8s-1"
+spec:
+  kubernetes:
+    type: "default"
+    version: "1.22.4"
+  replicas:
+    onEvery: 1
+  controlPlaneTemplate:
+    cpu: "4"
+    memory: "8GB"
+    image:
+      marketplace: "test-mp"
+      name: "CentOS-Stream8-K8s"
+    customization:
+      startScript: ""
+      startScriptEncoded: false
+      sshKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDxL6Bq5Pec2JUVMqLDgl8HelhK1rKeRKxg6ms9MJVOXGldxuuXh8zgA9g6AKUx+7pvWder5NQe2mws+dkUxU/ZXKq4ka2X1Snm5hqiWb7hFfE54fxq8s/K7MloY8pULfvIrItvT9U7HPwiNwTzM7YKjSdw9MYoCO5ve44N0MmOCKi7WqVTDuIWvkin2VJ0cF+KxjgGEw3HDMIIQYllYpSeMjXW6UQnA8MqJYI+6Ze9ctIUm8Si1U8EQuD5OMJL/BiObFTB8u+xT9U+V3+573/CHaQgdJ2ic5oet2dnkWFSl/vx2a+G01IaXmjZ3svbzYqcnM5yHKqlOv+YEl3tf5kvmTvibDRS9hDSuReiJC4BYq5LFBn7bPxavWOWeCmSHDtWSwh6E8Qr50yEA3Krhc6j2ww4kFvr+uRO+jjzZ17cN0pLzCZzEhBn0xYktTkiRLHBPs71gLoajPPAv1VB4wssML9lv1qBeNioOeiq86KmHJghj8FIFIU57On9+mXzRkE= hodaa@hodaa-mac-0"
+  workerTemplate:
+    cpu: "4"
+    memory: "8GB"
+    image:
+      marketplace: "test-mp"
+      name: "CentOS-Stream8-K8s"
+    customization:
+      startScript: ""
+      startScriptEncoded: false
+  networkTemplate:
+    mode: "bridge"
+    type: "public"
+    size: 2
+    cidr: "10.251.113.223"
+    securityGroups:
+    - name: "default"
