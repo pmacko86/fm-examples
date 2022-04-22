@@ -23,11 +23,3 @@ spec:
             memory: 100Mi
         ports:
         - containerPort: 80
-      nodeSelector:
-        type: virtual-kubelet
-        kubernetes.io/role: agent
-        beta.kubernetes.io/os: linux
-      tolerations:
-      - key: virtual-kubelet.io/provider
-        operator: Equal
-        value: netappedge
