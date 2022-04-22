@@ -9,5 +9,5 @@ spec:
     - girish-cluster/applications/hoda-cluster1
   repo: https://github.com/pmacko86/fm-examples
   targets:
-    - clusterGroup: rtp-dev
-      name: rtp-dev
+    - clusterGroup: rtp-dev-master
+      name: rtp-dev-master
